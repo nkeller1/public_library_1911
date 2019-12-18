@@ -16,18 +16,6 @@ class Library
     end
   end
 
-  # def max_year
-  #   books.max_by do |book|
-  #     book.publication_year
-  #   end
-  # end
-  #
-  # def min_year
-  #   books.min_by do |book|
-  #     book.publication_year
-  #   end
-  # end
-
   def publication_time_frame_for(author)
     max = author.books.map do |book|
       book.publication_year
