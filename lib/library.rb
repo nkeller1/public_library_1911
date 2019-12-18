@@ -1,9 +1,8 @@
 class Library
-  attr_reader :name, :books, :authors
+  attr_reader :name, :authors
 
-  def initialize(name)
+  def initialize(name, books = [])
     @name = name
-    @books = []
     @authors = []
   end
 
@@ -12,10 +11,8 @@ class Library
   end
 
   def books
-    books = []
-    @authors.map do |author|
-      @books << author.books
+    @authors.flat_map do |author|
+      author.books
     end
-    books
   end
 end
