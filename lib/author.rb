@@ -1,5 +1,5 @@
 class Author
-  attr_reader :first_name, :last_name
+  attr_reader :first_name, :last_name, :books
 
   def initialize(author_info)
     @first_name = author_info[:first_name]
@@ -12,11 +12,13 @@ class Author
   end
 
   def write(title, publication_date)
-    @books << Book.new({author_first_name: name.split(" ").first, author_last_name: name.split(" ").last, title: title, publication_date: publication_date})
+    write_hash = {
+    author_first_name: @first_name,
+    author_last_name: @author_last_name,
+    title: title,
+    publication_date: publication_date,
+      }
+    @books << Book.new(write_hash)
+    @books.last
   end
-
-  def books
-    @books.flatten
-  end
-
 end
